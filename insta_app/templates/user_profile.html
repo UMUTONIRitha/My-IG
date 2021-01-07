@@ -1,0 +1,52 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 200px;
+        height: 150px;
+        border-radius: 50%;
+    }
+
+    .theprofile {
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+}
+</style>
+<div class="container">
+    <h3 style="text-align: center;font-family: 'Redressed', cursive;font-size:40;margin-top: -2cm">User Profile</h3>
+<div class="row">
+    <div class="col-md-1">
+        <div class="profile" style="margin-top: 7%">
+            
+                <img src="{{my_profile.profile_photo.url}}" class="img-responsive avatar">
+        </div>
+    </div>
+    <div class="col-md-11">
+    <div class="imagecaption" style="margin-left: 15%;">
+        <h4 style="font-family: 'Arima Madurai', cursive;text-transform:capitalize;margin-top:50px;">{{my_profile.user}}</h4>
+                <h6 style="font-family: 'Arima Madurai', cursive">{% autoescape on %} 
+                        {{my_profile.bio| safe}} 
+                        {% endautoescape %}</h6>
+        </div>
+    </div>
+</div>
+<hr>
+</div>
+
+<div class="container">
+    <div class="row" style="margin-top: 2%; margin-left: 2%;margin-right:2%">
+    {% for user in profi_images %}
+        <div class="col-md-4" style="margin-right:5%;margin-top: 5%;">   
+        <img src="{{user.image.url}}" height="350" width="300"  alt="Image">
+        </div>
+    {% endfor %}
+</div> 
+</div>
+{% endblock %}
