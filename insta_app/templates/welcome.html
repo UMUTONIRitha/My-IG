@@ -11,26 +11,29 @@
     }
 </style>
 
-<div class="container" >      
-
+<div class="container-fluid" >      
+<h1 style="text-align: center;font-family: 'Redressed', cursive;font-size:89;margin-top: -2cm">Instagram</h1>
   {% for images in all_images %}
-    <div class="card" style="width: 32rem; margin-top: 7%; margin-left: 18%; ">  
+    <div class="card" style="width: 32rem; margin-top: 7%; margin-left:28%;color:black; ">  
             {% if images.profile%}
             <span style="margin-bottom: 3%;"><img src="{{images.profile.profile_photo.url}}" class="img-responsive profile-image" style="margin-right: 5%; margin-left: 3%; margin-top: 3%">
                 <strong><a href="{% url 'othersprofile' images.user.id %}" style="color: black">{{ images.user }}</a></strong></span>
             {% endif %}
+           
     <img src="{{images.image.url}}" height="400" class="img-responsive" alt="Image" data-toggle="modal" data-target="#{{images.id}}">   
-    <a href="{% url 'like' images.id%}"><img src="https://cdn2.iconfinder.com/data/icons/instagram-ui/48/jee-68-512.png" style="margin-bottom:-2%; margin-right:100%"  width=40></a>
-        <p><strong>{{images.likes}} likes</strong></p>
+    <a href="{% url 'like' images.id%}">
+    
+        <p style="font-family: 'JetBrains Mono', monospace;color:black;"><strong>{{images.likes}} <i class="fa fa-heart-o" ></i></strong></p></a>
 
-    <div class="card-body">
+    <div class="card-body" style="font-family: 'JetBrains Mono', monospace;">
+      
         <h5> {{images.image_caption}} </h5>
-        <h5> <small>{{images.date|timesince}}</small> </h5>
+        <h5 style="font-family: 'JetBrains Mono', monospace;color:black;"> <small>{{images.date|timesince}}</small> </h5>
      <hr>   
         {% for comments in images.comments_set.all %}
-       <span><p><strong style="margin-right: 2%">{{ my_profile.user }}</strong>{{comments.comment}}</p></span>
+       <span><p><strong style="margin-right: 2%;color:black;">{{ my_profile.user }}</strong>{{comments.comment}}</p></span>
         {% endfor %}
-        <a href="{%url 'comment' images.id%}" class="btn btn-success">Comment</a>
+        <a href="{%url 'comment' images.id%}" style="font-family: 'JetBrains Mono', monospace;color:color;"><i class="fa fa-comment-o" style="color: black;"></i></a>
     </div>
     </div>
     {% endfor %}   
