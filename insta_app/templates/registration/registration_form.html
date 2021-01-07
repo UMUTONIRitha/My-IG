@@ -1,31 +1,26 @@
 {%extends "registration/base.html"%} 
 {% load bootstrap4 %}
 {% block content %}
-<div class="container">
-  <h2 class="text-center" style="margin-top: 8%;font-family: 'Lobster', cursive;">You don't have account? Sign up</h2>
-  <div class="row">
-  
-    <div class="col-md-6" style="margin-top: 8%">
-        <img src="https://www.unlockunit.com/blog/wp-content/uploads/2018/02/instagram-on-phone.jpg" width="500" height="600" alt="" class="img-responsive">
-       
-     </div>
-  <div class="col-md-6" style="margin-top: 8%;">
+<div class="container-fluid" style="background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTA4fHxibG9nJTIwYmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60') ;background-repeat:no-repeat;background-size:cover;height:120vh;color:white;margin-top:-0.1cm;font-family: 'Federo', sans-serif;">
+  <h2 class="text-center" >Create an account<i class="fas fa-user-plus" style="color:white;"></i></h2>
+  <div class="row" style="margin-left:350px">
+   
     {% if form.errors %}
-    <p> Some Information Might be Incorrect </p>
+    <p> Some Information are Incorrect </p>
     {% endif %}
-        <h3 class="text-center" style="font-family: 'Lobster', cursive;">Sign Up</h3>
+       
 
-        <form  action="/accounts/register/" method="post" style="margin-top: 6%">
+        <form  action="/accounts/register/" method="post" style="margin-top: 6%;">
           {% csrf_token %}
           {% bootstrap_form form %}
           <div class="form-group">
-            <input type="submit" class="btn btn-success btn-sm" value="Sign Up">
+            <input type="submit" class="btn btn-outline-success btn-sm" value="Sign Up">
           </div>
           <input type="hidden" name="next" value="{{next}}">
         </form>
   </div>
 
    
-  </div>
+  
 </div>
 {% endblock %}
