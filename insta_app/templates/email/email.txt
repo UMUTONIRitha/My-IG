@@ -1,0 +1,2 @@
+Hello {{name}}
+Welcome to the instagram application You will find the most exciting post about IG users
