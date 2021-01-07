@@ -29,7 +29,7 @@ def add_profile(request):
             return redirect('myprofile')
     else:
         form = NewProfileForm()
-    return render(request, 'edit_profile.html', {"form": form})
+    return render(request, 'edit_profiles.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
 
@@ -37,7 +37,7 @@ def my_profile(request):
     current_user = request.user
     profi_images = Image.objects.filter(user = current_user)
     my_profile = Profile.objects.filter(user = current_user).first()
-    return render(request, 'profile.html', {"profi_images":profi_images, "my_profile":my_profile})
+    return render(request, 'user_profile.html', {"profi_images":profi_images, "my_profile":my_profile})
 
 @login_required(login_url='/accounts/login/')
 def search_users(request):
@@ -45,10 +45,10 @@ def search_users(request):
       search_term = request.GET.get("username")
       searched_users = Profile.search_by_profile(search_term)
       message = f"{search_term}"
-      return render(request, "search.html",{"message":message,"users": searched_users})
+      return render(request, "search_user.html",{"message":message,"users": searched_users})
   else:
       message = "You haven't searched for any term"
-      return render(request, 'search.html',{"message":message})
+      return render(request, 'search_user.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')
 def upload_image(request):
@@ -65,7 +65,7 @@ def upload_image(request):
 
     else:
         form = NewImageForm()
-    return render(request, 'upload.html', {"form": form})
+    return render(request, 'upload_info.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
 def add_comment(request, image_id):
@@ -82,7 +82,7 @@ def add_comment(request, image_id):
             return redirect('welcome')
     else:
         form = commentForm()
-    return render(request, 'comment_form.html', {"form": form, "image_id": image_id})
+    return render(request, 'comments_form.html', {"form": form, "image_id": image_id})
 
 def likes(request,id):
    likes=0
@@ -96,7 +96,7 @@ def others_profile(request, ima_id):
     current_user = User.objects.filter(id = ima_id).first()
     profiless_images = Image.objects.filter(user = current_user)
     my_profiless = Profile.objects.filter(user = current_user).first()
-    return render(request, 'other_usersprofile.html', {"profiless_images":profiless_images, "my_profiless":my_profiless})
+    return render(request, 'other_usersprofiles.html', {"profiless_images":profiless_images, "my_profiless":my_profiless})
     
 @login_required(login_url='/accounts/login/')
 def following(request, profile_id):
@@ -105,3 +105,7 @@ def following(request, profile_id):
     followers = Follow(from_user = current_user,profile = profile_user)
     followers.save()
     return redirect('othersprofile', profile_id)
+
+    
+
+
