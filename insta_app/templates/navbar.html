@@ -15,7 +15,7 @@
           <a class="navbar-brand" href="{%url 'welcome'%}">
         
               <span style="font-family: 'Noto Serif JP', serif;color:black;">
-                <i class="fa fa-instagram" ></i>  My-IG
+                <img src="https://res.cloudinary.com/moringari/image/upload/v1610037304/instalogo_xfa2eb.png" alt="" height="50px" width="45px">  My-IG
               </span>
               
             </a>
@@ -31,7 +31,7 @@
 
           <ul class="nav justify-content-end">
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'myprofile'%}" style="font-family: 'Noto Serif JP', serif;color:black;"><i class="fas fa-user fa-sm"></i>Profile</a>
+                <a class="nav-link" href="{%url 'myprofile'%}" style="font-family: 'Noto Serif JP', serif;color:black;"><i class="fas fa-user fa-sm"></i>{{user.username}}</a>
               </li>
 
               <li class="nav-item">
