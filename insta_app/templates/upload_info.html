@@ -1,5 +1,4 @@
-
-{% load bootstrap4 %} 
+{% load bootstrap4 %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -11,30 +10,35 @@
   <title>Upload</title>
   {{form.media}}
 
-  {% block styles %} 
+  {% block styles %}
   {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap" rel="stylesheet">
   {% endblock %}
 
 </head>
 
-<body>
-<div class="container-fluid">
-<h4 style="text-align: center;margin-top:30px;">Upload image and add a caption</h4>
-<div class="row" style="margin-left:500px;margin-top:40px">
-  <form  action="{%url 'upload' %}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
+<body style="background-color: black;color:white;">
+  <div class="container">
+    <h4 style="text-align: center;margin-top:30px;font-family: 'Jacques Francois', serif;">Upload image and add a caption</h4>
+    <div class="row" style="margin-top:50px">
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1595039838779-f3780873afdd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGFncmFtfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image" height="450px" width="400px">
+      </div>
+      <div class="col-md-6" style="font-family: 'Open Sans Condensed', sans-serif;">
+        <form action="{%url 'upload' %}" method="post" enctype="multipart/form-data">
+          {%csrf_token%}
 
-    {% bootstrap_form form%}
-    <input type="submit" class="btn btn-outline-primary btn-sm" value="Post">
-  </form>
+          {% bootstrap_form form%}
+          <input type="submit" class="btn btn-outline-info btn-sm" value="Post">
+        </form>
 
-   {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  {% bootstrap_javascript %} {% endblock %}
-</div>
-</div>
-
+        {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %} {% endblock %}
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
