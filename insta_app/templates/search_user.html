@@ -2,26 +2,25 @@
 {% block content %}
 <div class="container">
 
-  <div class="row">
+ 
     {% if users%}
-      <h3>you have {{ users|length}} for your search {{message}}</h3>
+      <h3>you have {{ users|length}} with username {{message}}</h3>
     {% else %}
-      <h3> you have  0 users for your search {{message}}</h3>
+      <h3> you have  0 users with username search {{message}}</h3>
     {% endif %}
 
-  </div>
-
-  <div class="row">
+ 
+ 
 
   {% if users %}
     {% for user in users %}
-      <div class="col-sm-6 col-md-3">
-        <h3 style="color:rgb(41, 39, 39)"><strong>User profile</strong>{{user.user.username}}</h3>
-      </div>
+     
+        <h3><strong>User profile</strong> &nbsp; {{user.user.username}}</h3>
+     
       
     {% endfor %}
   {% endif %}
-  </div>
+  
 </div>
 
 {% endblock %}
