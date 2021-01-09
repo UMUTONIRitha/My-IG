@@ -2,30 +2,14 @@
 
 {% block content %}
 {{block.super}}
-<style>
-    .profilepic {
-        vertical-align: middle;
-        width: 200px;
-        height: 180px;
-        border-radius: 20%;
-    }
 
-    .theprofile {
-        float: left;
-        width: calc(33.333% - 1rem);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 3rem;
-    }
-</style>
 <div class="container">
     <h3 style="text-align: center;font-family: 'Redressed', cursive;font-size:40;margin-top: -2cm">User Profile</h3>
     <div class="row">
         <div class="col-md-1">
             <div class="profile" style="margin-top: 7%">
 
-                <img src="{{my_profile.profile_photo.url}}" class="img-responsive profilepic">
+                <img src="{{my_profile.profile_photo.url}}" class="img-responsive profilepic" style="vertical-align: middle;width: 200px;height: 180px; border-radius: 20%;">
             </div>
         </div>
         <div class="col-md-11">
