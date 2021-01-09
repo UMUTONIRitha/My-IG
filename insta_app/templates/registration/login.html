@@ -2,29 +2,35 @@
 {% load bootstrap4 %}
 {% block content %}
 
-<div class="container-fluid"
-  style="background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('https://res.cloudinary.com/moringari/image/upload/c_crop,h_500,q_60,x_92,y_155/a_0/v1609951599/insta_cna0rq.jpg') ;background-repeat:no-repeat;background-size:cover;background-position:center center;height:100vh;color:white;margin-top:-61;">
+<div class="container">
 
 
-  <h2 class="text-center" style="margin-top: 5%;">Sign In</h2>
-  <p class="text-center" style="margin-top: 7%;">Don't have an account?? <a id="sign" href="/accounts/register/"
-      style="color: white;"> Sign up</a></p>
-  <div class="row" style="margin-left:500px">
-    <form action="/accounts/login/" method="post">
-      {% csrf_token %}
-      {% bootstrap_form form%}
-      <div class="form-group">
-        <input type="submit" class="btn btn-outline-success btn-sm" value="Login">
-      </div>
-      <input type="hidden" name="next" value="{{next}}">
-    </form>
-    {% if form.errors %}
-    <p> Please enter valid username or password </p>
 
-    {% endif %}
+  <h2 class="text-center" style="margin-top: 5%;font-family: 'Jacques Francois', serif;">Sign In</h2>
+  <div class="row" style="margin-top:50px">
+    <div class="col-md-6">
+      <img src="https://images.unsplash.com/photo-1595039838779-f3780873afdd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGFncmFtfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image" height="450px" width="400px">
+ 
+    </div>
+    <div class="col-md-6" style="font-family: 'Federo', sans-serif;">
+      <p class="text-center" style="margin-top: 7%;">Don't have an account?? <a id="sign" href="/accounts/register/"
+          style="color: white;"> Sign up here</a></p>
 
+      <form action="/accounts/login/" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form%}
+        <div class="form-group">
+          <input type="submit" class="btn btn-outline-info btn-sm" value="Login">
+        </div>
+        <input type="hidden" name="next" value="{{next}}">
+      </form>
+      {% if form.errors %}
+      <p> Please enter valid username or password </p>
 
+      {% endif %}
+
+    </div>
   </div>
 
 </div>
-  {% endblock %}
+{% endblock %}
