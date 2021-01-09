@@ -35,10 +35,12 @@
 * Follow other users and see their pictures on my timeline.
 * Like a picture and leave a comment on it.
 
+## How Pizza Project look
+![MY-IG](IG.png)
 
 <!-- ## Live link -->
 
-<!-- [Here is the Link: My-IG](https://rithagallery.herokuapp.com/"My-Gallery") -->
+<!-- [Here is the Link: My-IG](https://rithainsta.herokuapp.com/"My-IG") -->
 
 ## Contact Information
 
