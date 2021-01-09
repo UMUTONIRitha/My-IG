@@ -4,9 +4,9 @@
 {{block.super}}
 
 <div class="container">
-    <h1 style="text-align: center;font-family: 'Redressed', cursive;font-size:89;margin-top: -2cm">Instagram</h1>
+    <h1 style="text-align: center;font-family: 'Redressed', cursive;font-size:89;margin-top: -1cm">Instagram</h1>
     {% for images in all_images %}
-    <div class="card" style="width: 32rem; margin-top: 7%; margin-left:28%;color:black; ">
+    <div class="card" style="width: 32rem; margin-top: 5%; margin-left:28%;color:black; ">
         {% if images.profile%}
         <span style="margin-bottom: 3%;"><img src="{{images.profile.profile_photo.url}}" class="img-responsive ifoto" style="margin-right: 5%; margin-left: 3%; margin-top: 3%; vertical-align: middle; width: 80px; height: 60px;border-radius: 20%;">
             <strong><a href="{% url 'othersprofile' images.user.id %}" style="color: black">{{images.user}} </a>&nbsp;&nbsp;<a href="{% url 'othersprofile' images.user.id %}" style="color: black;">Follow</a></strong></span>
