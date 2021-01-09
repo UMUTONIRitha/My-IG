@@ -3,44 +3,49 @@
 {% block content %}
 {{block.super}}
 <style>
-    .avatar {
+    .profile {
         vertical-align: middle;
         width: 150px;
         height: 150px;
-        border-radius: 50%;
+        border-radius: 20%;
     }
 
     .theprofile {
-    float: left;
-    width: calc(33.333% - 1rem);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 3rem;
-}
+        float: left;
+        width: calc(33.333% - 1rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 3rem;
+    }
 </style>
 <div class="container">
-<div class="row">
-    <div class="profile" style="margin-top: -7%">
-            <img src="{{my_profiless.profile_photo.url}}" class="img-responsive avatar">
-    </div>
-    
-    <div class="imagecaption" style="margin-left: 15%">
-        <h4>{{my_profiless.user}}</h4>
-            <h4>{% autoescape on %} 
-                    {{my_profiless.bio| safe}} 
-                    {% endautoescape %}</h4>
-            <a href="{%url 'follow' my_profiless.id %}" class="btn btn-success">follow</a>
-    </div>
-</div>
-<hr>
-
-    <div class="row" style="margin-top: 3%; margin-left: 3%;margin-right:3%">
-    {% for user in profiless_images %}
-        <div class="col-md-4" style="margin-right:3%">   
-        <img src="{{user.image.url}}" height="250" height="150" class="img-responsive" alt="Image">
+    <div class="row">
+        <div class="profile" style="margin-top: 10px">
+            <img src="{{my_profiless.profile_photo.url}}" class="img-responsive profile">
         </div>
-    {% endfor %}
-</div> 
+
+        <div class="imagecaption" style="margin-left: 15%">
+
+            <span class="mr-5"><strong>{{my_profiless.user}}</strong></span>
+            <span class="mr-5"><a href="{%url 'follow' my_profiless.id %}"
+                    class="btn btn-outline-info btn-sm">Follow</a></span>
+            <p> {{my_profiless.bio| safe}}</p>
+            <span class="mr-5"><strong>{{profiless_images.count}}</strong> Posts</span>
+            <span class="mr-5"> <strong>{{followers.count }}</strong>0 Followers</span>
+
+        </div>
+    </div>
+    <hr style="background-color: gray;margin-left:3px;margin-right:5px;">
+
+    <div class="row" style=" margin-left: 5px;">
+        {% for user in profiless_images %}
+        <div class="col-md-3" style="margin-right:10px;margin-top: 20px;">
+            <img src="{{user.image.url}}" height="380" width="250" class="img-responsive" alt="Image">
+
+        </div>
+        {% endfor %}
+
+    </div>
 </div>
 {% endblock %}
